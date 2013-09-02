@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@color/transparent"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="5dp" >
+
+        <ImageView
+            android:id="@id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/list_nopic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@color/transparent"
+        android:gravity="right"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="@string/home_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/slightdarkgray" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/hello_world"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/small" />
+
+        <Button
+            android:id="@id/buy_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_orange"
+            android:clickable="false"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/detail_arrow_white"
+            android:focusable="false"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:shadowColor="@color/slightdarkgray"
+            android:shadowDx="1"
+            android:shadowRadius="1"
+            android:text="@string/buy"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small" />
+
+    </LinearLayout>
+
+</TableRow>

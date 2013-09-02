@@ -1,0 +1,303 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/drakwhite"
+    android:orientation="vertical"
+    tools:context=".HotelActivity" >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/head_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/head_logo"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/home_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/head_border_repeat"
+            android:contentDescription="@string/app_name" />
+
+        <requestFocus />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/tableLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/table_bg" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_city"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/field_city"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/slightdarkgray"
+                        android:textSize="@dimen/little" />
+
+                    <EditText
+                        android:id="@+id/input_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:hint="@string/input_city_tip"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium" >
+                    </EditText>
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/lightgray"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_date"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/field_checkin_date"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/slightdarkgray"
+                        android:textSize="@dimen/little" />
+
+                    <TextView
+                        android:id="@+id/input_checkin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:hint="@string/input_checkin_tip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium" />
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/lightgray"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_days"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/field_in_days"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/slightdarkgray"
+                        android:textSize="@dimen/little" />
+
+                    <TextView
+                        android:id="@+id/input_indays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:hint="@string/input_days_tip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium" />
+
+                    <TextView
+                        android:id="@+id/lbl_checkout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/minimal" />
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/lightgray"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_key"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/field_key"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/slightdarkgray"
+                        android:textSize="@dimen/little" />
+
+                    <EditText
+                        android:id="@+id/input_key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:hint="@string/input_key_tip"
+                        android:imeOptions="actionNone"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium" />
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/lightgray"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_price"
+                        android:drawablePadding="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/field_price"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/slightdarkgray"
+                        android:textSize="@dimen/little" />
+
+                    <TextView
+                        android:id="@+id/lbl_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:drawableRight="@drawable/detail_arrow"
+                        android:text="@string/hotel_types_all"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="@dimen/medium" />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_orange"
+                android:drawableLeft="@drawable/icon_search"
+                android:drawablePadding="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:shadowColor="@color/slightdarkgray"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="@string/search"
+                android:textColor="@color/white"
+                android:textSize="@dimen/small" >
+
+                <requestFocus />
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+    <GridView
+        android:id="@+id/tab_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkgray"
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:listSelector="@drawable/tabbar_bg"
+        android:numColumns="5"
+        android:padding="0dp"
+        android:verticalSpacing="0dp" >
+    </GridView>
+
+</LinearLayout>

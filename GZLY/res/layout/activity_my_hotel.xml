@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/drakwhite"
+    tools:context=".MyHotelActivity" >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/head_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/head_logo"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/home_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/head_border_repeat"
+            android:contentDescription="@string/app_name" />
+
+        <requestFocus />
+    </LinearLayout>
+    <GridView
+        android:id="@+id/tab_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/darkgray"
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:listSelector="@drawable/tabbar_bg"
+        android:numColumns="5"
+        android:padding="0dp"
+        android:verticalSpacing="0dp" >
+
+    </GridView>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tab_box"
+        android:layout_below="@id/header"
+        android:layout_margin="10dp"
+        android:background="@drawable/table_bg" >
+
+    </ListView>
+
+</RelativeLayout>

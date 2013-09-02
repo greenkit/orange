@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableRow6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="10dp" >
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/icon_account"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/input_name_tip"
+        android:inputType="textNoSuggestions"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/little" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/input_idcard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/icon_idcard"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/input_idcard_tip"
+        android:inputType="number"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/little" />
+
+</TableRow>

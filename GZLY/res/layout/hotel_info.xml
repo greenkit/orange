@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/drakwhite"
+    android:orientation="vertical"
+    android:paddingBottom="10dp" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/picview_bg_repeat"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/alphablack"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/table_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_map" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/slightdarkgray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lightgray"
+            android:orientation="vertical"
+            android:padding="10dp" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:baselineAligned="true"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <CheckBox
+                    android:id="@+id/havDiningRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_margin="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/checkbox"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="0dp"
+                    android:text="@string/hotel_facility_havDiningRoom"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <CheckBox
+                    android:id="@+id/havMeetingRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:layout_margin="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/checkbox"
+                    android:clickable="false"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="0dp"
+                    android:text="@string/hotel_facility_havMeetingRoom"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <CheckBox
+                    android:id="@+id/havPark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_margin="0dp"
+                    android:button="@drawable/checkbox"
+                    android:clickable="false"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="0dp"
+                    android:text="@string/hotel_facility_havPark"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp" >
+
+                <CheckBox
+                    android:id="@+id/havBreakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_margin="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/checkbox"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="0dp"
+                    android:text="@string/hotel_facility_havBreakfast"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <CheckBox
+                    android:id="@+id/havHotWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:button="@drawable/checkbox"
+                    android:clickable="false"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="0dp"
+                    android:text="@string/hotel_facility_havHotWater"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <Button
+                    android:id="@+id/btn_order_notify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_gray_detail"
+                    android:gravity="center_vertical|center_horizontal|left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/order_notify"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <Button
+                    android:id="@+id/btn_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_gray_detail"
+                    android:gravity="center_vertical|center_horizontal|left"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/hotel_detail"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/black_bg"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="@string/rate"
+            android:textColor="@color/white"
+            android:textSize="@dimen/little" />
+
+        <TextView
+            android:id="@+id/rate_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="40dp"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/normal" />
+
+        <TextView
+            android:id="@+id/rate_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/little" />
+
+    </LinearLayout>
+
+</RelativeLayout>

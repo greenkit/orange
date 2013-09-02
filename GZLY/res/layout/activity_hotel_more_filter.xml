@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HotelMoreFilterActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/drakwhite"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_ok" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_cancel" />
+    </TableRow>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tableRow1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="bottom|center_horizontal" >
+
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ScrollView
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/linearlayut1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:padding="20dp" >
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent" >
+
+                            <RadioButton
+                                android:id="@+id/price0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/no_limit" />
+
+                            <RadioButton
+                                android:id="@+id/price1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_price_range_150" />
+
+                            <RadioButton
+                                android:id="@+id/price2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_price_range_300" />
+
+                            <RadioButton
+                                android:id="@+id/price3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_price_range_600" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/linearlayut2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:padding="20dp" >
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent" >
+
+                            <RadioButton
+                                android:id="@+id/type0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/no_limit" />
+
+                            <RadioButton
+                                android:id="@+id/type1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_1" />
+
+                            <RadioButton
+                                android:id="@+id/type2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_2" />
+
+                            <RadioButton
+                                android:id="@+id/type3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_3" />
+
+                            <RadioButton
+                                android:id="@+id/type4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/hotel_type_4" />
+
+                            <RadioButton
+                                android:id="@+id/type5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_5" />
+
+                            <RadioButton
+                                android:id="@+id/type6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_6" />
+
+                            <RadioButton
+                                android:id="@+id/type7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hotel_type_7" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/linearlayut3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:orientation="vertical"
+                        android:padding="20dp" >
+
+                        <CheckBox
+                            android:id="@+id/facility_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/no_limit" />
+
+                        <CheckBox
+                            android:id="@+id/facility_havDiningRoom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/hotel_facility_havDiningRoom" />
+
+                        <CheckBox
+                            android:id="@+id/facility_havMeetingRoom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/hotel_facility_havMeetingRoom" />
+
+                        <CheckBox
+                            android:id="@+id/facility_havBreakfast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/hotel_facility_havBreakfast" />
+
+                        <CheckBox
+                            android:id="@+id/facility_havHotWater"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/hotel_facility_havHotWater" />
+
+                        <CheckBox
+                            android:id="@+id/facility_havPark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:paddingLeft="40dp"
+                            android:text="@string/hotel_facility_havPark" />
+                    </LinearLayout>
+                </ScrollView>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>

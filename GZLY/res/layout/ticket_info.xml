@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+ <com.standny.gzly.MyViewPager
+     android:id="@+id/picview"
+     android:layout_width="fill_parent"
+     android:layout_height="200dp"
+     android:background="@drawable/picview_bg_repeat"
+     android:clickable="false"
+     android:focusable="false"
+     android:focusableInTouchMode="false" />
+
+    <ImageButton
+        android:id="@+id/left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/picview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@id/picview"
+        android:background="@color/transparent"
+        android:contentDescription="@string/home_title"
+        android:paddingLeft="10dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+        android:src="@drawable/picview_arraw_left" />
+
+    <ImageButton
+        android:id="@+id/rgiht_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/picview"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/picview"
+        android:layout_below="@+id/picview"
+        android:background="@color/transparent"
+        android:contentDescription="@string/home_title"
+        android:paddingRight="10dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+        android:src="@drawable/picview_arraw_right" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/picview"
+        android:layout_alignParentLeft="true"
+        android:background="@color/alphablack"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:background="@color/transparent"
+        android:paddingBottom="15dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/rate_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/rate_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/big" />
+
+        <TextView
+            android:id="@+id/rate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rate_value"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/rate"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/total_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rate_value"
+            android:layout_toRightOf="@+id/rate_value"
+            android:text="@string/parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/orange" />
+
+        <TextView
+            android:id="@+id/rate_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/total_money"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/slightdarkgray" />
+
+        <Button
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rate_title"
+            android:layout_alignRight="@+id/rate_desc"
+            android:layout_below="@+id/rate_value"
+            android:background="@drawable/btn_map"
+            android:gravity="center_vertical|center_horizontal|left"
+            android:paddingBottom="5dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/slightdarkgray" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/price2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:background="@color/lightgray"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="@string/buy_ticket"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

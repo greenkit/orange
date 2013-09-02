@@ -1,0 +1,384 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/drakwhite"
+    android:orientation="vertical"
+    tools:context=".BuyRoomActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/icon_reach"
+            android:drawablePadding="5dp"
+            android:text="@string/hello_world"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium" >
+
+        </TextView>
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/table_bg" >
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_date"
+                    android:drawablePadding="5dp"
+                    android:text="@string/field_checkin_date"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <TextView
+                    android:id="@+id/input_checkin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/medium" >
+                </TextView>
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_days"
+                    android:drawablePadding="5dp"
+                    android:text="@string/field_in_days"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <TextView
+                    android:id="@+id/input_indays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/medium" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/lbl_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/minimal" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/room_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/icon_hoteldetail"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/field_rooms"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <com.standny.ui.itempicker.ItemPicker
+                    android:id="@+id/room_count"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp" >
+
+                </com.standny.ui.itempicker.ItemPicker>
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/icon_people"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/field_people"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <com.standny.ui.itempicker.ItemPicker
+                    android:id="@+id/people_count"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp" >
+
+                </com.standny.ui.itempicker.ItemPicker>
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_time"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/field_come_time"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/slightdarkgray"
+                    android:textSize="@dimen/little" />
+
+                <TextView
+                    android:id="@+id/input_come_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/medium" >
+                </TextView>
+            </TableRow>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingRight="10dp" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/icon_account"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/field_contact"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/slightdarkgray"
+                            android:textSize="@dimen/little" />
+
+                        <EditText
+                            android:id="@+id/input_contact"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@color/transparent"
+                            android:ems="10"
+                            android:imeOptions="actionNext"
+                            android:inputType="textNoSuggestions"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/medium" />
+
+                    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp" >
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/icon_idcard"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/field_contact_tel"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/slightdarkgray"
+                            android:textSize="@dimen/little" />
+
+                        <EditText
+                            android:id="@+id/input_contact_tel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@color/transparent"
+                            android:ems="10"
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/medium" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_addbook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/btn_addbook" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/lbl_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/icon_price"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/hello_world"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/small" />
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_orange"
+            android:drawableLeft="@drawable/icon_zfb"
+            android:drawablePadding="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:text="@string/btn_buy"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.standny.gzly"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.standny.gzly.HomeActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.standny.gzly.TicketActivity"
+            android:launchMode="singleTop"
+            android:label="@string/title_activity_ticket"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.TicketViewActivity"
+            android:label="@string/title_activity_ticket_view"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.BuyTicketActivity"
+            android:label="@string/title_activity_buy_ticket"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.HotelActivity"
+            android:launchMode="singleTop"
+            android:label="@string/title_activity_hotel"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.NumberPickerActivity"
+            android:label="@string/title_activity_number_picker"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.HotelMoreFilterActivity"
+            android:label="@string/title_activity_hotel_more_filter"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.HotelListActivity"
+            android:label="@string/title_activity_hotel_list"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.HotelViewActivity"
+            android:label="@string/title_activity_hotel_view"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.DatePickerActivity"
+            android:label="@string/title_activity_date_picker"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.BuyRoomActivity"
+            android:label="@string/title_activity_buy_room"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.ComeTimePickerActivity"
+            android:label="@string/title_activity_come_time_picker"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.ContactsActivity"
+            android:label="@string/title_activity_contacts"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.UserCenterActivity"
+            android:launchMode="singleTop"
+            android:label="@string/title_activity_user_center"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.MyInfoActivity"
+            android:label="@string/title_activity_my_info"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.MyHotelActivity"
+            android:label="@string/title_activity_my_hotel"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.standny.gzly.MyTicketActivity"
+            android:label="@string/title_activity_my_ticket"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>
