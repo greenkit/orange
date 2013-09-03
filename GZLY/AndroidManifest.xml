@@ -132,6 +132,14 @@
             android:label="@string/title_activity_my_ticket"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <!-- article -->
+        <activity
+            android:name=".article.ArticleListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
     </application>
 
 </manifest>
