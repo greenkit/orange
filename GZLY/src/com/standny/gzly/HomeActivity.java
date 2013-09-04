@@ -1,7 +1,8 @@
 package com.standny.gzly;
 
-import android.os.Bundle;
+import com.standny.gzly.article.ArticleListActivity;
 
+import android.os.Bundle;
 import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
@@ -47,18 +48,39 @@ public class HomeActivity extends MasterActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				switch ((int) arg3) {
-				case 3: {
+                switch ((int) arg3) {
+                    case 0: {
+                        Intent intent = new Intent();
+                        intent.setClass(HomeActivity.this,
+                                ArticleListActivity.class);
+                        intent.putExtra("parentCatgoryKey", "gzIntro");
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right,
+                                R.anim.slide_out_left);
+                        break;
+                    }
+                    case 5: {
+                        Intent intent = new Intent();
+                        intent.setClass(HomeActivity.this,
+                                ArticleListActivity.class);
+                        intent.putExtra("parentCatgoryKey", "Raiders");
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right,
+                                R.anim.slide_out_left);
+                        break;
+                    }
+                    case 3: {
 
-					Intent intent = new Intent();
-					intent.setClass(HomeActivity.this, HotelActivity.class);
-					startActivity(intent);
-					overridePendingTransition(R.anim.slide_in_right,
-							R.anim.slide_out_left);
-					HomeActivity.this.finish();
-				}
-					break;
-				}
+                        Intent intent = new Intent();
+                        intent.setClass(HomeActivity.this, HotelActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right,
+                                R.anim.slide_out_left);
+                        HomeActivity.this.finish();
+                        break;
+                    }
+
+                }
 			}
 		});
 

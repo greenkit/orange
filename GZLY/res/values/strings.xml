@@ -134,6 +134,11 @@
     <string name="btn_refund">申请退款</string>
     <string name="btn_unrefund">撤销申请</string>
     <string name="useMans">使用人</string>
+    <string name="retry">重试</string>
+    <string name="cancel">取消</string>
 
     <!-- article -->
+    <string name="data_load_fail">载入数据失败</string>
+    <string name="no_match_article">没有符合条件的文章.</string>
+    
 </resources>

@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="text_article_category">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/alphablack</item>
+    </style>
+
+</resources>

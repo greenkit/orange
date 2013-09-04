@@ -81,7 +81,9 @@ public class ArticleAPI {
         });
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("id", parentCategoryId.toString()));
+        if(parentCategoryId != -1) {
+            params.add(new BasicNameValuePair("id", parentCategoryId.toString()));
+        }
         params.add(new BasicNameValuePair("key", key));
         jc.BeginPost(APIConfig.ApiUrl + "GetArticleClass", params);
     }

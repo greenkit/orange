@@ -1,7 +1,7 @@
 package com.standny.gzly.repository;
 
 public class APIConfig {
-	public final static String ApiUrl="http://m.517gzz.net/appapi/";//"http://192.168.1.9/appapi/";
+	public final static String ApiUrl="http://42.121.137.2:801/appapi/";//"http://192.168.1.9/appapi/";
 	public static String GetFullPath(String path){
 		if (path.startsWith("http//"))
 			return path;

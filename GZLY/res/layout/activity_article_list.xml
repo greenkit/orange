@@ -43,22 +43,25 @@
     
     <HorizontalScrollView 
         android:id="@+id/sv_category"
+        android:layout_below="@id/header"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout 
             android:id="@+id/ll_category_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
             android:orientation="horizontal"/>
     </HorizontalScrollView>
     
     <ListView
         android:id="@+id/list"
+        android:layout_below="@id/sv_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tab_box"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/header"
         android:background="@color/white" >
 
     </ListView>

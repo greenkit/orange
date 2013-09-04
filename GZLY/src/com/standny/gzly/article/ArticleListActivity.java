@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +38,7 @@ import com.standny.gzly.repository.CGSize;
 import com.standny.gzly.repository.ImageDownloadCallback;
 import com.standny.gzly.repository.ImageManager;
 import com.standny.gzly.repository.article.ArticleAPI;
+import com.standny.gzly.utils.DialogUtils;
 import com.standny.ui.FingerTracker;
 
 public class ArticleListActivity extends MasterActivity implements
@@ -53,9 +54,11 @@ public class ArticleListActivity extends MasterActivity implements
     private int totalItemCount;
     private boolean isloading;
     private View loadMoreView;
+    private LinearLayout categoryBarLayout;
     
     private ArticleAPI mArticleAPI;
     private Integer currentSelectedCategoryId;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +66,15 @@ public class ArticleListActivity extends MasterActivity implements
         setContentView(R.layout.activity_article_list);
         parentCategoryId = getIntent().getIntExtra("parentCategoryId", -1);
         parentCatgoryKey = getIntent().getStringExtra("parentCatgoryKey");
-        
         mArticleAPI = new ArticleAPI();
         
+        initUI();
+        
+        loadArticleCategory();
+    }
+    
+    private void initUI() {
+        categoryBarLayout = (LinearLayout) findViewById(R.id.ll_category_content);
         listView = (ListView) findViewById(R.id.list);
         listView.setOnScrollListener(this);
         listView.setOnItemClickListener(new OnItemClickListener() {
@@ -75,19 +84,21 @@ public class ArticleListActivity extends MasterActivity implements
                     int position, long id) {
                 if (listItem == loadMoreView && !loadMoreView.getTag().equals("no")) {
                     if (!isloading) {
-                        loadArticleList(currentSelectedCategoryId, ++pageIndex);
+                        loadArticleList(currentSelectedCategoryId, pageIndex);
                     }
                     return;
                 }
                 ArticleListModel articleEntry = (ArticleListModel) parent.getAdapter().getItem(position);
-                Intent intent = new Intent();
-                intent.setClass(ArticleListActivity.this, DetailActivity.class);
-                intent.putExtra("title", articleEntry.getSubject());
-                intent.putExtra("url", String.format("%sdetail/%d?type=1",APIConfig.ApiUrl, 
-                        articleEntry.getId()));
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right,
-                     R.anim.slide_out_left);
+                if(articleEntry != null) {
+                   Intent intent = new Intent();
+                   intent.setClass(ArticleListActivity.this, DetailActivity.class);
+                   intent.putExtra("title", articleEntry.getSubject());
+                   intent.putExtra("url", String.format("%sdetail/%d?type=1",APIConfig.ApiUrl, 
+                           articleEntry.getId()));
+                   startActivity(intent);
+                   overridePendingTransition(R.anim.slide_in_right,
+                        R.anim.slide_out_left);
+                }
             }
         });
 
@@ -102,7 +113,6 @@ public class ArticleListActivity extends MasterActivity implements
         if (!isloading && scrollState == OnScrollListener.SCROLL_STATE_IDLE
                 && visibleLastIndex == itemsLastIndex
                 && itemsLastIndex < this.totalItemCount) {
-            pageIndex++;
             loadArticleList(currentSelectedCategoryId, pageIndex);
         }
     }
@@ -117,7 +127,7 @@ public class ArticleListActivity extends MasterActivity implements
                 && totalItemCount == this.totalItemCount + 1) {
             // removeLoadingRow();
             loadMoreView.setTag("no");
-            this.changeLoadingRowText("没有更多了");
+            this.changeLoadingRowText(getString(R.string.nomore));
             // Toast.makeText(this, "数据全部加载完!", Toast.LENGTH_LONG).show();
         }
     }
@@ -128,7 +138,6 @@ public class ArticleListActivity extends MasterActivity implements
         listView.setAdapter(mListAdapter);
         pageIndex = 1;
         totalItemCount = 0;
-        //loadArticleList(currentSelectedCategoryId, pageIndex);
     }
 
     public void addLoadingRow() {
@@ -152,48 +161,112 @@ public class ArticleListActivity extends MasterActivity implements
      * 
      */
     public void loadArticleCategory() {
+        if (isloading) {
+            return;
+        }
+        isloading = true;
         mArticleAPI.getArtcleCategories(parentCategoryId, parentCatgoryKey, 
                 new APICallback<List<ArticleCategory>>() {
             @Override
             public void onError(String msg) {
-                
+                isloading = false;
+                DialogUtils.showDialog(ArticleListActivity.this, msg, 
+                        getString(R.string.data_load_fail), new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                            int which) {
+                        loadArticleCategory();
+                        dialog.dismiss();
+                    }
+                });
             }
             @Override
             public void onCompleted(APIResultModel<List<ArticleCategory>> result) {
-                //TODO add category data to bar
+                isloading = false;
+                if (result.getSuc()) {
+                    fillCategoryBar(result.getItems());
+                } else {
+                    Toast.makeText(ArticleListActivity.this,
+                            result.getMsg(), Toast.LENGTH_LONG).show();
+
+                }
             }
         });
     }
+    
+    private void fillCategoryBar(List<ArticleCategory> categories) {
+        categoryBarLayout.removeAllViews();
+        if(categories != null && categories.size() > 0) {
+            for(final ArticleCategory item : categories) {
+                final TextView tvItem = new TextView(this);
+                tvItem.setText(item.getTitle());
+                tvItem.setTextAppearance(this, R.style.text_article_category);
+                tvItem.setClickable(true);
+                tvItem.setTag(item.getId());
+                int padding = getResources().getDimensionPixelSize(
+                        R.dimen.article_category_padding);
+                tvItem.setPadding(padding/2, padding, padding/2, padding);
+                tvItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(currentSelectedCategoryId != item.getId()) {
+                           currentSelectedCategoryId = item.getId();
+                           pageIndex = 1;
+                           mListAdapter.clearData();
+                           loadArticleList(currentSelectedCategoryId, pageIndex);
+                           updateScrollTextStatus();
+                        }
+                    }
+                });
+                
+                categoryBarLayout.addView(tvItem);
+            }
+        }
+    }
+    
+    private void updateScrollTextStatus() {
+        for(int i=0; i < categoryBarLayout.getChildCount(); i++) {
+            View view = categoryBarLayout.getChildAt(i);
+            boolean isSelected = false;
+            if(view.getTag() != null && view.getTag() instanceof Integer) {
+                isSelected = (((Integer) view.getTag()).equals(currentSelectedCategoryId));
+            }
+            //view.setBackgroundColor(isSelected ? Color.rgb(242, 242, 242) : -1);
+            ((TextView)view).setTextColor(isSelected ? getResources().getColor(R.color.red) : 
+                getResources().getColor(R.color.alphablack));
+        }
+      }
     
 
     /**
      * Load article list based on article category id.
      * 
      * @param articleCategoryId
-     * @param pageIndex
+     * @param page
      */
-    public void loadArticleList(Integer articleCategoryId, Integer pageIndex) {
+    public void loadArticleList(Integer articleCategoryId, final Integer page) {
         if (isloading) {
             return;
         }
         isloading = true;
-        changeLoadingRowText("载入中...");
+        changeLoadingRowText(getString(R.string.loading));
         
-        mArticleAPI.getArticleList(articleCategoryId, pageIndex, 
+        mArticleAPI.getArticleList(articleCategoryId, page, 
              new APICallback<List<ArticleListModel>>() {
                  @Override
                  public void onCompleted(
                          APIResultModel<List<ArticleListModel>> result) {
                      isloading = false;
-                     changeLoadingRowText("查看更多...");
+                     changeLoadingRowText(getString(R.string.showmore));
                      if (result.getSuc()) {
                          totalItemCount = result.getTotalItemCount();
                          if (totalItemCount == 0) {
-                             changeLoadingRowText("没有符合条件的文章.");
+                             changeLoadingRowText(getString(R.string.no_match_article));
                          } else {
                              List<ArticleListModel> items = result.getItems();
                              mListAdapter.addItem(items);
                          }
+                         pageIndex++;
                      } else {
                          Toast.makeText(ArticleListActivity.this,
                                  result.getMsg(), Toast.LENGTH_LONG).show();
@@ -204,31 +277,15 @@ public class ArticleListActivity extends MasterActivity implements
                  @Override
                  public void onError(String msg) {
                      isloading = false;
-                     AlertDialog.Builder builder = new Builder(
-                             ArticleListActivity.this);
-                     builder.setMessage(msg);
-                     builder.setTitle("载入数据失败");
-                     builder.setPositiveButton("重试", new OnClickListener() {
+                     DialogUtils.showDialog(ArticleListActivity.this, msg, 
+                             getString(R.string.data_load_fail), new OnClickListener() {
                          @Override
                          public void onClick(DialogInterface dialog,
                                  int which) {
-                             loadArticleList(currentSelectedCategoryId, ArticleListActivity.this.pageIndex);
+                             loadArticleList(currentSelectedCategoryId, page);
                              dialog.dismiss();
                          }
                      });
-                     builder.setNegativeButton("取消", new OnClickListener() {
-                         @Override
-                         public void onClick(DialogInterface dialog,
-                                 int which) {
-                             dialog.dismiss();
-                         }
-                     });
-                     try {
-                         builder.create().show();
-                     }
-                     catch (Exception e) {
-                         e.printStackTrace();
-                     }
                  }
 
              });
@@ -241,7 +298,7 @@ public class ArticleListActivity extends MasterActivity implements
         private LayoutInflater layoutInflater;
         
         public ArticleListAdapter(Context context) {
-            LayoutInflater.from(context);
+            layoutInflater = LayoutInflater.from(context);
             articleList = new ArrayList<ArticleListModel>();
             DisplayMetrics dm = new DisplayMetrics();
             ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -289,7 +346,8 @@ public class ArticleListActivity extends MasterActivity implements
             viewHolder.tvSummary.setText(item.getSummary());
             viewHolder.tvPostTime.setText(item.getPostTime());
             
-            if (item.getCoverPic() != null && item.getCoverPic().length() > 0) {
+            final String coverUrl = item.getCoverPic();
+            if (!TextUtils.isEmpty(coverUrl) && !coverUrl.equals("null")) {
                 Bitmap bmp = imgManager.GetImage(item.getCoverPic(),
                         new CGSize(100, 100), R.id.image,
                         new ImageDownloadCallback() {
@@ -322,6 +380,11 @@ public class ArticleListActivity extends MasterActivity implements
 
         public void addItem(ArticleListModel item) {
             articleList.add(item);
+            this.notifyDataSetChanged();
+        }
+        
+        public void clearData() {
+            articleList.clear();
             this.notifyDataSetChanged();
         }
         

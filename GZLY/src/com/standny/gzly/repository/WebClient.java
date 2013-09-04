@@ -22,6 +22,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.conn.params.ConnManagerParams;
+import org.apache.http.conn.params.ConnPerRouteBean;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
@@ -40,6 +41,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+/**
+ * For the ConnectionPoolTimeoutException always happen, 
+ * Resolved in blog http://blog.csdn.net/shootyou/article/details/6615051
+ * 1. setMaxTotalConnections & setMaxConnectionsPerRoute
+ * 2. abort http request finally
+ * 
+ */
 public class WebClient {
 	static final String TAG="WebClient";
 	private static HttpClient customerHttpClient;
@@ -86,6 +94,11 @@ public class WebClient {
             HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
             HttpProtocolParams.setContentCharset(params,CHARSET);
             HttpProtocolParams.setUseExpectContinue(params, true);
+            // 设置最大连接数  
+            ConnManagerParams.setMaxTotalConnections(params, 800);  
+            // 设置每个路由最大连接数  
+            ConnPerRouteBean connPerRoute = new ConnPerRouteBean(400);  
+            ConnManagerParams.setMaxConnectionsPerRoute(params, connPerRoute);  
             //HttpProtocolParams.setUserAgent(params,"Mozilla/5.0(Linux;U;Android 2.2.1;en-us;Nexus One Build.FRG83) "+ "AppleWebKit/553.1(KHTML,like Gecko) Version/4.0 Mobile Safari/533.1");
             // 超时设置
             /* 从连接池中取连接的超时时间 */
@@ -162,6 +175,8 @@ public class WebClient {
 					Message m = mHandler.obtainMessage(1, msg);
 					m.sendToTarget();
 					e.printStackTrace();
+				} finally {
+				    httpRequest.abort();
 				}
 			}
 		}).start();
@@ -228,7 +243,9 @@ public class WebClient {
 					Message m = mHandler.obtainMessage(1, msg);
 					m.sendToTarget();
 					e.printStackTrace();
-				}
+				} finally {
+                httpRequest.abort();
+            }
 			}
 		}).start();
 	}
@@ -297,7 +314,9 @@ public class WebClient {
 					Message m = mHandler.obtainMessage(1, msg);
 					m.sendToTarget();
 					e.printStackTrace();
-				}
+				} finally {
+                httpRequest.abort();
+            }
 			}
 		}).start();
 	}
