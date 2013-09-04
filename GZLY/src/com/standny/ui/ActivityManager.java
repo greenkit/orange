@@ -19,31 +19,31 @@ public class ActivityManager {
             return activityManager;
     }
      
-    private ActivityManager(){
-            //this.context = context;
+    private ActivityManager() {
+        // this.context = context;
     }
      
     /**
-     * task map£¬ÓÃÓÚ¼ÇÂ¼activityÕ»£¬·½±ãÍË³ö³ÌĞò£¨ÕâÀïÎªÁË²»Ó°ÏìÏµÍ³»ØÊÕactivity£¬ËùÒÔÓÃÈíÒıÓÃ£©
+     * task mapï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½Â¼activityÕ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ë²ï¿½Ó°ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½activityï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½
      */
     private final HashMap<String, SoftReference<Activity>> taskMap = new HashMap<String, SoftReference<Activity>>();
      
     /**
-     * ÍùÓ¦ÓÃtask map¼ÓÈëactivity
+     * ï¿½ï¿½Ó¦ï¿½ï¿½task mapï¿½ï¿½ï¿½ï¿½activity
      */
     public final void putActivity(Activity atv) {
             taskMap.put(atv.toString(), new SoftReference<Activity>(atv));
     }
      
     /**
-     * ÍùÓ¦ÓÃtask map¼ÓÈëactivity
+     * ï¿½ï¿½Ó¦ï¿½ï¿½task mapï¿½ï¿½ï¿½ï¿½activity
      */
     public final void removeActivity(Activity atv) {
             taskMap.remove(atv.toString());
     }
      
     /**
-     * Çå³ıÓ¦ÓÃµÄtaskÕ»£¬Èç¹û³ÌĞòÕı³£ÔËĞĞÕâ»áµ¼ÖÂÓ¦ÓÃÍË»Øµ½×ÀÃæ
+     * ï¿½ï¿½ï¿½Ó¦ï¿½Ãµï¿½taskÕ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½áµ¼ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public final void exit() {
             for (Iterator<Entry<String, SoftReference<Activity>>> iterator = taskMap.entrySet().iterator(); iterator.hasNext();) {
