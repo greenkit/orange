@@ -221,6 +221,11 @@ public class ArticleListActivity extends MasterActivity implements
                 
                 categoryBarLayout.addView(tvItem);
             }
+            
+            //load first article list finally
+             currentSelectedCategoryId = categories.get(0).getId();
+             loadArticleList(currentSelectedCategoryId, pageIndex);
+             updateScrollTextStatus();
         }
     }
     
