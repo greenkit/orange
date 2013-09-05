@@ -197,14 +197,14 @@ public class ArticleListActivity extends MasterActivity implements
     private void fillCategoryBar(List<ArticleCategory> categories) {
         categoryBarLayout.removeAllViews();
         if(categories != null && categories.size() > 0) {
+            int padding = getResources().getDimensionPixelSize(
+                    R.dimen.article_category_padding);
             for(final ArticleCategory item : categories) {
                 final TextView tvItem = new TextView(this);
                 tvItem.setText(item.getTitle());
                 tvItem.setTextAppearance(this, R.style.text_article_category);
                 tvItem.setClickable(true);
                 tvItem.setTag(item.getId());
-                int padding = getResources().getDimensionPixelSize(
-                        R.dimen.article_category_padding);
                 tvItem.setPadding(padding/2, padding, padding/2, padding);
                 tvItem.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -221,11 +221,14 @@ public class ArticleListActivity extends MasterActivity implements
                 
                 categoryBarLayout.addView(tvItem);
             }
+            TextView spaceView = new TextView(this);
+            spaceView.setPadding(0, 0, padding, 0);
+            categoryBarLayout.addView(spaceView);
             
             //load first article list finally
-             currentSelectedCategoryId = categories.get(0).getId();
-             loadArticleList(currentSelectedCategoryId, pageIndex);
-             updateScrollTextStatus();
+            currentSelectedCategoryId = categories.get(0).getId();
+            loadArticleList(currentSelectedCategoryId, pageIndex);
+            updateScrollTextStatus();
         }
     }
     
