@@ -49,7 +49,7 @@ public class ArticleListActivity extends MasterActivity implements
     
     private ListView listView;
     private ArticleListAdapter mListAdapter;
-    private int visibleLastIndex = 0; // ×îºóµÄ¿ÉÊÓÏîË÷Òı
+    private int visibleLastIndex = 0; // ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private int pageIndex;
     private int totalItemCount;
     private boolean isloading;
@@ -60,6 +60,12 @@ public class ArticleListActivity extends MasterActivity implements
     private Integer currentSelectedCategoryId;
     
 
+    //TODO remove 
+    //ç”˜å­œä»‹ç»  gzIntro
+    //ä½¿ç”¨å¸®åŠ©  help
+    //ç‰¹è‰²æœåŠ¡  services
+    //æ—…æ¸¸æ”»ç•¥  Raiders
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +80,8 @@ public class ArticleListActivity extends MasterActivity implements
     }
     
     private void initUI() {
+        String title = getIntent().getStringExtra("activity_title");
+        ((TextView) findViewById(R.id.tv_activity_title)).setText(title);
         categoryBarLayout = (LinearLayout) findViewById(R.id.ll_category_content);
         listView = (ListView) findViewById(R.id.list);
         listView.setOnScrollListener(this);
@@ -109,7 +117,7 @@ public class ArticleListActivity extends MasterActivity implements
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-        int itemsLastIndex = mListAdapter.getCount(); // Êı¾İ¼¯×îºóÒ»ÏîµÄË÷Òı
+        int itemsLastIndex = mListAdapter.getCount(); // ï¿½ï¿½İ¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!isloading && scrollState == OnScrollListener.SCROLL_STATE_IDLE
                 && visibleLastIndex == itemsLastIndex
                 && itemsLastIndex < this.totalItemCount) {
@@ -122,13 +130,13 @@ public class ArticleListActivity extends MasterActivity implements
             int visibleItemCount, int totalItemCount) {
         // this.visibleItemCount = visibleItemCount;
         visibleLastIndex = firstVisibleItem + visibleItemCount - 1;
-        // Èç¹ûËùÓĞµÄ¼ÇÂ¼Ñ¡ÏîµÈÓÚÊı¾İ¼¯µÄÌõÊı£¬ÔòÒÆ³ıÁĞ±íµ×²¿ÊÓÍ¼
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ¼ï¿½Â¼Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½Ğ±ï¿½×²ï¿½ï¿½ï¿½Í¼
         if (this.totalItemCount > 0
                 && totalItemCount == this.totalItemCount + 1) {
             // removeLoadingRow();
             loadMoreView.setTag("no");
             this.changeLoadingRowText(getString(R.string.nomore));
-            // Toast.makeText(this, "Êı¾İÈ«²¿¼ÓÔØÍê!", Toast.LENGTH_LONG).show();
+            // Toast.makeText(this, "ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!", Toast.LENGTH_LONG).show();
         }
     }
 

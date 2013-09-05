@@ -46,24 +46,17 @@ public class HomeActivity extends MasterActivity {
 		gv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+			public void onItemClick(AdapterView<?> adapterView, View arg1, int position,
 					long arg3) {
                 switch ((int) arg3) {
-                    case 0: {
+                    case 0: 
+                    case 5:{
+                        MenuItem item = (MenuItem) adapterView.getAdapter().getItem(position);
                         Intent intent = new Intent();
                         intent.setClass(HomeActivity.this,
                                 ArticleListActivity.class);
-                        intent.putExtra("parentCatgoryKey", "gzIntro");
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right,
-                                R.anim.slide_out_left);
-                        break;
-                    }
-                    case 5: {
-                        Intent intent = new Intent();
-                        intent.setClass(HomeActivity.this,
-                                ArticleListActivity.class);
-                        intent.putExtra("parentCatgoryKey", "Raiders");
+                        intent.putExtra("parentCatgoryKey", arg3 == 0 ? "gzIntro" : "Raiders");
+                        intent.putExtra("activity_title", getString(item.getTitleID()));
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right,
                                 R.anim.slide_out_left);
