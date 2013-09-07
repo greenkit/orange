@@ -1,12 +1,16 @@
 package com.standny.gzly.utils;
 
-import com.standny.gzly.R;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+
+import com.standny.gzly.R;
 
 public class DialogUtils {
 
@@ -30,5 +34,15 @@ public class DialogUtils {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public static void showCreateChannelDialog(Context context) {
+        View view = LayoutInflater.from(context).inflate(
+                R.layout.road_create_channel, null, false);
+        final Dialog dialog = new Dialog(context, R.style.dialog);
+        //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(view);
+        
+        dialog.show();
     }
 }

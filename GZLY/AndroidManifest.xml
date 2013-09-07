@@ -139,6 +139,11 @@
             android:screenOrientation="portrait" >
         </activity>
         
+        <!-- Road -->
+        <activity
+            android:name=".road.RoadChannelActivity"
+            android:screenOrientation="portrait" >
+        </activity>
         
     </application>
 

@@ -141,4 +141,12 @@
     <string name="data_load_fail">载入数据失败</string>
     <string name="no_match_article">没有符合条件的文章.</string>
     
+    <!-- Road -->
+    <string name="in_the_road">在路上</string>
+    <string name="OK">确定</string>
+    <string name="create_channel">创建频道</string>
+    <string name="channel_subject">频道主题</string>
+    <string name="set_password">设置密码</string>
+    <string name="summary">简介</string>
+    
 </resources>

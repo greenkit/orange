@@ -1,14 +1,15 @@
 package com.standny.gzly;
 
-import com.standny.gzly.article.ArticleListActivity;
-
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+
+import com.standny.gzly.article.ArticleListActivity;
+import com.standny.gzly.road.RoadChannelActivity;
 
 public class HomeActivity extends MasterActivity {
 	private GridView gv;
@@ -37,12 +38,12 @@ public class HomeActivity extends MasterActivity {
 		setContentView(R.layout.activity_home);
 		tabIndex = 0;
 		gv = (GridView) findViewById(R.id.icon_grid);
-		// ÉèÖÃÁÐÊý
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		gv.setNumColumns(3);
-		// ÅäÖÃÊÊÅäÆ÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		gv.setAdapter(new MenuItemAdapter(title, img, bgImg,
 				R.layout.grid_item, this));
-		// ÅäÖÃ¼àÌýÆ÷£¬Ð´¶ÔÑ¡ÖÐµÄÍ¼±êµÄ²Ù×÷¡£ÔÚÀý×ÓÖÐ¶¼Ìøµ½SysManActivity
+		// ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ñ¡ï¿½Ðµï¿½Í¼ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½SysManActivity
 		gv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -62,8 +63,15 @@ public class HomeActivity extends MasterActivity {
                                 R.anim.slide_out_left);
                         break;
                     }
+                    case 1: {
+                        Intent intent = new Intent();
+                        intent.setClass(HomeActivity.this, RoadChannelActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right,
+                                R.anim.slide_out_left);
+                        break;
+                    }
                     case 3: {
-
                         Intent intent = new Intent();
                         intent.setClass(HomeActivity.this, HotelActivity.class);
                         startActivity(intent);
@@ -80,7 +88,7 @@ public class HomeActivity extends MasterActivity {
 	}
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// ´¦ÀíWebViewÌø×ª·µ»Ø
+		// ï¿½ï¿½ï¿½ï¿½WebViewï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
 		if ((keyCode == KeyEvent.KEYCODE_BACK)) {
 			exit();
 			// return true;

@@ -14,4 +14,15 @@
     <color name="black">#000</color>
     <color name="yellow">#ff0</color>
     
+    
+    
+    <!-- Array -->
+    <array name="channel_random_bg">
+	    <item>#F78284</item>
+	    <item>#FFFAD6</item>
+	    <item>#F7DFB5</item>
+	    <item>#F7E78C</item>
+	    <item>#EF967B</item>
+	    <item>#DEBA84</item>
+	</array>
 </resources>
