@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:padding="6dp">
+
+    <ImageView android:id="@+id/iv_portrait"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/default_pic"/>
+    
+    <TextView android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_portrait"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="Green"
+        android:textColor="#363636"
+        android:textSize="18sp" />
+    
+    <TextView android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="成都市武侯区玉林南路12号"
+        android:textColor="#646464"
+        android:textSize="12sp" />
+    
+    <TextView android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="2dp"
+        android:text="海螺沟现在这季节是什么情况？"
+        android:textColor="#363636"
+        android:textSize="16sp" />
+
+    <ImageView android:id="@+id/iv_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_alignLeft="@id/tv_content"
+        android:src="@drawable/default_pic"/>
+    
+</RelativeLayout>

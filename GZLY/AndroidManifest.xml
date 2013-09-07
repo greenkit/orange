@@ -144,6 +144,10 @@
             android:name=".road.RoadChannelActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".road.RoadChatRoomActivity"
+            android:screenOrientation="portrait" >
+        </activity>
         
     </application>
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +46,9 @@ public class RoadChannelActivity extends MasterActivity {
                     int position, long arg3) {
                 if(position == adapterView.getAdapter().getCount() - 1) {
                     DialogUtils.showCreateChannelDialog(RoadChannelActivity.this);
+                } else {
+                    Intent intent = new Intent(RoadChannelActivity.this, RoadChatRoomActivity.class);
+                    startActivity(intent);
                 }
             }
         });
